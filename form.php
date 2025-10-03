@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name)) $errors[] = "Name is required.";
     elseif (!ctype_alpha(str_replace(' ', '', $name))) $errors[] = "Name must contain letters only.";
 
+    
     // Email
     if (empty($email)) $errors[] = "Email is required.";
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email format.";
@@ -53,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "</ul>";
     } else {
         $hobbies_str = implode(", ", $hobbies);
-        $masked_phone = str_repeat("*", 6) . substr($phone, 6); // show only last 4 digits
+        $masked_phone = str_repeat("*", 6) . substr($phone, 6); 
 
         echo "<p style='color:green;'>✔ Success!<br>
               Name: $name<br>
@@ -91,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <label>Date of Birth:</label>
     <input type="date" name="dob"><br><br>
+
 
     <label>Website:</label>
     <input type="text" name="website"><br><br>
